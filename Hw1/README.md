@@ -32,6 +32,13 @@
 
 1. 將給予之圖片分別以RGB三色呈現
 
+### **Color Separation**
+
+作業要求：
+
+1. 將給予之圖片透過opencv函式以灰階圖片呈現
+2. 將1-2三個不同channels以`(R+B+G)/3`的方式合併成一張灰階圖片
+
 ---
 
 ## Image Smoothing
@@ -83,3 +90,4 @@
 * [PyQt使用](https://www.wongwonggoods.com/python/pyqt5-2/)
 * [Python 與 OpenCV 基本讀取、顯示與儲存圖片教學](https://blog.gtwang.org/programming/opencv-basic-image-read-and-write-tutorial/)
 * [運用 OpenCV 顯示圖片直方圖、分離與合併RGB通道](https://www.wongwonggoods.com/python/python_opencv/opencv-histogram-split-merge-rgb-channel/)
+* [OpenCV 從零開始的影像處理](https://ithelp.ithome.com.tw/users/20126965/ironman/3364)
