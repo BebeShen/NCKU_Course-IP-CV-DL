@@ -28,7 +28,7 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="LoadImageButton">
        <property name="text">
         <string>1. Load Image File</string>
        </property>

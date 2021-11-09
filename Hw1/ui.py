@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from controller import * 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -24,12 +24,17 @@ class Ui_MainWindow(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.pushButton_2 = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.verticalLayout.addWidget(self.pushButton_2)
-        self.pushButton_4 = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.pushButton_4.setObjectName("pushButton_4")
-        self.verticalLayout.addWidget(self.pushButton_4)
+        # 1-1 Load Image
+        self.loadImageButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.loadImageButton.setObjectName("loadImageButton")
+        self.verticalLayout.addWidget(self.loadImageButton)
+        self.loadImageButton.clicked.connect(loadImageButtonClicked)
+        # 1-2 Color Separation
+        self.colorSeparateButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.colorSeparateButton.setObjectName("colorSeparateButton")
+        self.verticalLayout.addWidget(self.colorSeparateButton)
+        self.colorSeparateButton.clicked.connect(colorSeparateButtonClicked)
+
         self.pushButton_3 = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.pushButton_3.setObjectName("pushButton_3")
         self.verticalLayout.addWidget(self.pushButton_3)
@@ -79,15 +84,14 @@ class Ui_MainWindow(object):
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
-
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.pushButton_2.setText(_translate("MainWindow", "1. Load Image File"))
-        self.pushButton_4.setText(_translate("MainWindow", "2. Color Separation"))
+        self.loadImageButton.setText(_translate("MainWindow", "1. Load Image File"))
+        self.colorSeparateButton.setText(_translate("MainWindow", "2. Color Separation"))
         self.pushButton_3.setText(_translate("MainWindow", "PushButton"))
         self.pushButton.setText(_translate("MainWindow", "PushButton"))
         self.pushButton_5.setText(_translate("MainWindow", "1. Load Image File"))

@@ -8,6 +8,13 @@
 4. [Transforms](#transforms)
 5. [Training Cifar-10 Classifier Using VGG16](#training-cifar-10-classifier-using-vgg16)
 
+## Environment
+
+* Python 3.8.2
+* opencv-python 4.5.4.58
+* numpy 1.18.2
+* PyQt5 5.15.6
+
 ## Image Processing
 
 >Image Processing分為4小題
@@ -54,7 +61,7 @@
 1. Pre-install PyQt & OpenCV
 
     ```shell
-    pip install PyQt5 cv2
+    pip install PyQt5 opencv-python numpy
     ```
 
 2. Compile `.ui` after designing GUI by using Qt Designer
@@ -75,3 +82,4 @@
 
 * [PyQt使用](https://www.wongwonggoods.com/python/pyqt5-2/)
 * [Python 與 OpenCV 基本讀取、顯示與儲存圖片教學](https://blog.gtwang.org/programming/opencv-basic-image-read-and-write-tutorial/)
+* [運用 OpenCV 顯示圖片直方圖、分離與合併RGB通道](https://www.wongwonggoods.com/python/python_opencv/opencv-histogram-split-merge-rgb-channel/)
