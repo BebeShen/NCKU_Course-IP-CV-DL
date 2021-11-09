@@ -90,4 +90,6 @@
 * [PyQt使用](https://www.wongwonggoods.com/python/pyqt5-2/)
 * [Python 與 OpenCV 基本讀取、顯示與儲存圖片教學](https://blog.gtwang.org/programming/opencv-basic-image-read-and-write-tutorial/)
 * [運用 OpenCV 顯示圖片直方圖、分離與合併RGB通道](https://www.wongwonggoods.com/python/python_opencv/opencv-histogram-split-merge-rgb-channel/)
+* [How to Convert an RGB Image to Grayscale](https://e2eml.school/convert_rgb_to_grayscale.html)
+* [Python OpenCV Tutorial Part 3 : RGB to Gray Conversion of an Image](https://www.youtube.com/watch?v=TfVW1iFfmto)
 * [OpenCV 從零開始的影像處理](https://ithelp.ithome.com.tw/users/20126965/ironman/3364)

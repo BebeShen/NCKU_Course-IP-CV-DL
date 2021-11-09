@@ -45,18 +45,15 @@ def colorTransformateButtonClicked():
     (imgBlue, imgGreen, imgRed) = cv2.split(img)
     imgMerged = cv2.merge([imgBlue, imgGreen, imgRed])
     imgGray = cv2.cvtColor(imgMerged, cv2.COLOR_BGR2GRAY)
-    print(imgGray)
-    cv2.imshow('Merged by cv2', imgGray)
+    cv2.imshow('Merge RGB by cv2', imgGray)
     # Weighted formula
-    # img = cv2.imread('.\Dataset_OpenCvDl_Hw1\Q1_Image\Sun.jpg')
-    # (imgBlue, imgGreen, imgRed) = cv2.split(img)
-    # imgBlue = imgBlue*0.33
-    # imgGreen = imgGreen*0.33
-    # imgRed = imgRed*0.33
-    # dst = cv2.add(imgBlue, imgGreen)
-    # imgMergedW = np.round(cv2.add(dst, imgRed))
-    # print(imgMergedW)
-    # cv2.imshow('W', imgMergedW)
+    img2 = cv2.imread('.\Dataset_OpenCvDl_Hw1\Q1_Image\Sun.jpg')
+    imgBlue2 = img2[:,:,0]
+    imgGreen2 = img2[:,:,1]
+    imgRed2 = img2[:,:,2]
+    imgMergedData = imgBlue2*0.33 + imgGreen2*0.33 + imgRed2*0.33
+    imgMerged2 = np.uint8(imgMergedData)
+    cv2.imshow("Merge RGB by Average Weight", imgMerged2)
 
 # 1-4 Blending
 def blending(x):
