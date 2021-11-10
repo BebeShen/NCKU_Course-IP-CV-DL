@@ -9,7 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from controller import * 
+from Q1controller import * 
+from Q2controller import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -51,26 +52,21 @@ class Ui_MainWindow(object):
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        
-        self.pushButton_5 = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
-        self.pushButton_5.setObjectName("pushButton_5")
-        self.verticalLayout_2.addWidget(self.pushButton_5)
-
-        self.pushButton_6 = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
-        self.pushButton_6.setObjectName("pushButton_6")
-        self.verticalLayout_2.addWidget(self.pushButton_6)
-
-        self.pushButton_13 = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
-        self.pushButton_13.setObjectName("pushButton_13")
-        self.verticalLayout_2.addWidget(self.pushButton_13)
-
-        self.pushButton_7 = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
-        self.pushButton_7.setObjectName("pushButton_7")
-        self.verticalLayout_2.addWidget(self.pushButton_7)
-
-        self.pushButton_8 = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
-        self.pushButton_8.setObjectName("pushButton_8")
-        self.verticalLayout_2.addWidget(self.pushButton_8)
+        # 2-1 Gaussian Blur
+        self.gaussianBlurButton = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
+        self.gaussianBlurButton.setObjectName("gaussianBlurButton")
+        self.verticalLayout_2.addWidget(self.gaussianBlurButton)
+        self.gaussianBlurButton.clicked.connect(gaussianBlurButtonClicked)
+        # 2-2 Bilateral Filter
+        self.bilateralFilterButton = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
+        self.bilateralFilterButton.setObjectName("bilateralFilterButton")
+        self.verticalLayout_2.addWidget(self.bilateralFilterButton)
+        self.bilateralFilterButton.clicked.connect(bilateralFilterButtonClicked)
+        # 2-3 Median Filter
+        self.medianFilterButton = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
+        self.medianFilterButton.setObjectName("medianFilterButton")
+        self.verticalLayout_2.addWidget(self.medianFilterButton)
+        self.medianFilterButton.clicked.connect(medianFilterButtonClicked)
 
         self.verticalLayoutWidget_3 = QtWidgets.QWidget(self.centralwidget)
         self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(530, 10, 251, 611))
@@ -109,11 +105,11 @@ class Ui_MainWindow(object):
         self.colorSeparateButton.setText(_translate("MainWindow", "2. Color Separation"))
         self.colorTransformateButton.setText(_translate("MainWindow", "3. Color Transformation"))
         self.blendingButton.setText(_translate("MainWindow", "4. Blending"))
-        self.pushButton_5.setText(_translate("MainWindow", "1. Load Image File"))
-        self.pushButton_6.setText(_translate("MainWindow", "2. Color Separation"))
-        self.pushButton_13.setText(_translate("MainWindow", "PushButton"))
-        self.pushButton_7.setText(_translate("MainWindow", "PushButton"))
-        self.pushButton_8.setText(_translate("MainWindow", "PushButton"))
+
+        self.gaussianBlurButton.setText(_translate("MainWindow", "1. Gaussian Blur"))
+        self.bilateralFilterButton.setText(_translate("MainWindow", "2. Bilateral Filter"))
+        self.medianFilterButton.setText(_translate("MainWindow", "3. Median Filter"))
+
         self.pushButton_9.setText(_translate("MainWindow", "1. Load Image File"))
         self.pushButton_10.setText(_translate("MainWindow", "2. Color Separation"))
         self.pushButton_11.setText(_translate("MainWindow", "PushButton"))

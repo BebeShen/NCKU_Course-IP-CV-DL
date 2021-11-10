@@ -32,18 +32,46 @@
 
 1. 將給予之圖片分別以RGB三色呈現
 
-### **Color Separation**
+### **Color Transformation**
 
 作業要求：
 
 1. 將給予之圖片透過opencv函式以灰階圖片呈現
 2. 將1-2三個不同channels以`(R+B+G)/3`的方式合併成一張灰階圖片
 
+### **Blending**
+
+作業要求：
+
+1. 將給予之兩張圖片透過opencv函式以`Blending`的方式呈現
+2. 利用`trackbar`調整blending的值
+
 ---
 
 ## Image Smoothing
 
 >Image Smoothing分為3小題
+
+### **Gaussian Blur**
+
+作業要求：
+
+1. 開啟新視窗呈現給予之圖片
+2. console出圖片之長寬
+
+### **Bilateral Filter**
+
+作業要求：
+
+1. 開啟新視窗呈現給予之圖片
+2. console出圖片之長寬
+
+### **Median Filter**
+
+作業要求：
+
+1. 開啟新視窗呈現給予之圖片
+2. console出圖片之長寬
 
 ---
 
@@ -93,3 +121,7 @@
 * [How to Convert an RGB Image to Grayscale](https://e2eml.school/convert_rgb_to_grayscale.html)
 * [Python OpenCV Tutorial Part 3 : RGB to Gray Conversion of an Image](https://www.youtube.com/watch?v=TfVW1iFfmto)
 * [OpenCV 從零開始的影像處理](https://ithelp.ithome.com.tw/users/20126965/ironman/3364)
+* [OpenCV Python Image Smoothing – Gaussian Blur](https://www.tutorialkart.com/opencv/python/opencv-python-gaussian-image-smoothing/)
+* [Bilateral Filtering in Python OpenCV with cv2.bilateralFilter()](https://machinelearningknowledge.ai/bilateral-filtering-in-python-opencv-with-cv2-bilateralfilter/)
+* [python-與-opencv-模糊處理](https://chtseng.wordpress.com/2016/11/17/python-%E8%88%87-opencv-%E6%A8%A1%E7%B3%8A%E8%99%95%E7%90%86/)
+* [What is a mathematical relation of diameter and sigma arguments in bilateral filter function?](https://stackoverflow.com/questions/59505866/what-is-a-mathematical-relation-of-diameter-and-sigma-arguments-in-bilateral-fil)
