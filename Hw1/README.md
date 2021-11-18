@@ -56,28 +56,53 @@
 
 作業要求：
 
-1. 開啟新視窗呈現給予之圖片
-2. console出圖片之長寬
+1. 利用Gaussian Blur進行5x5的影像平滑化
 
 ### **Bilateral Filter**
 
 作業要求：
 
-1. 開啟新視窗呈現給予之圖片
-2. console出圖片之長寬
+1. 利用Bilateral Filter進行9x9的影像平滑化
 
 ### **Median Filter**
 
 作業要求：
 
-1. 開啟新視窗呈現給予之圖片
-2. console出圖片之長寬
+1. 利用Median Filter進行3x3和5x5的影像平滑化
 
 ---
 
 ## Edge Detection
 
 >Edge Detection分為4小題
+
+### **Gaussian Blur(self defined function)**
+
+作業要求：
+
+1. 利用Gaussian Blur的方式進行Image Smooth
+2. **不能使用opencv之function**
+
+### **Sobel X**
+
+作業要求：
+
+1. 利用Sobel Operation(vertical edge)的方式進行3x3的Edge Detection
+2. **不能使用opencv之function**
+
+### **Sobel Y**
+
+作業要求：
+
+1. 利用Sobel Operation(horizontal edge)的方式進行3x3的Edge Detection
+2. **不能使用opencv之function**
+
+### **Magnitude**
+
+作業要求：
+
+1. 開啟新視窗呈現給予之圖片
+2. console出圖片之長寬
 
 ---
 
@@ -125,3 +150,6 @@
 * [Bilateral Filtering in Python OpenCV with cv2.bilateralFilter()](https://machinelearningknowledge.ai/bilateral-filtering-in-python-opencv-with-cv2-bilateralfilter/)
 * [python-與-opencv-模糊處理](https://chtseng.wordpress.com/2016/11/17/python-%E8%88%87-opencv-%E6%A8%A1%E7%B3%8A%E8%99%95%E7%90%86/)
 * [What is a mathematical relation of diameter and sigma arguments in bilateral filter function?](https://stackoverflow.com/questions/59505866/what-is-a-mathematical-relation-of-diameter-and-sigma-arguments-in-bilateral-fil)
+* [[Python]Gaussian Filter-概念與實作](https://medium.com/@bob800530/python-gaussian-filter-%E6%A6%82%E5%BF%B5%E8%88%87%E5%AF%A6%E4%BD%9C-676aac52ea17)
+* [Applying Gaussian Smoothing to an Image using Python from scratch](Applying Gaussian Smoothing to an Image using Python from scratch)
+* [How to implement Sobel edge detection using Python from scratch](http://www.adeveloperdiary.com/data-science/computer-vision/how-to-implement-sobel-edge-detection-using-python-from-scratch/)

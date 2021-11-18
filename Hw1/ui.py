@@ -11,8 +11,19 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Q1controller import * 
 from Q2controller import *
+from Q3controller import *
 
 class Ui_MainWindow(object):
+    def __init__(self) -> None:
+        super().__init__()
+        self.verbose = False
+
+    def verboseButtonClicked(self):
+        self.verbose = not self.verbose
+        _translate = QtCore.QCoreApplication.translate
+        self.verboseButton.setText(_translate("MainWindow", "verbose: " + str(self.verbose)))
+        print(self.verbose)
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1069, 650)
@@ -74,19 +85,25 @@ class Ui_MainWindow(object):
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_3)
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
+        # 3-1 Gaussian Blur Edge 
+        self.verboseButton = QtWidgets.QPushButton(self.centralwidget)
+        self.verboseButton.setGeometry(QtCore.QRect(565, 575, 200, 25))
+        self.verboseButton.setObjectName("verboseButton")
+        self.verboseButton.clicked.connect(self.verboseButtonClicked)
 
-        self.pushButton_9 = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
-        self.pushButton_9.setObjectName("pushButton_9")
-        self.verticalLayout_3.addWidget(self.pushButton_9)
-
+        self.gaussianBlurEdgeButton = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
+        self.gaussianBlurEdgeButton.setObjectName("gaussianBlurEdgeButton")
+        self.verticalLayout_3.addWidget(self.gaussianBlurEdgeButton)
+        self.gaussianBlurEdgeButton.clicked.connect(lambda:gaussianBlurEdgeButtonClicked(self.verbose))
+        # 3-2 Sobel X
         self.pushButton_10 = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
         self.pushButton_10.setObjectName("pushButton_10")
         self.verticalLayout_3.addWidget(self.pushButton_10)
-
+        # 3-3 Sobel Y
         self.pushButton_11 = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
         self.pushButton_11.setObjectName("pushButton_11")
         self.verticalLayout_3.addWidget(self.pushButton_11)
-
+        # 3-4 Magnitude
         self.pushButton_12 = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
         self.pushButton_12.setObjectName("pushButton_12")
         self.verticalLayout_3.addWidget(self.pushButton_12)
@@ -109,11 +126,11 @@ class Ui_MainWindow(object):
         self.gaussianBlurButton.setText(_translate("MainWindow", "1. Gaussian Blur"))
         self.bilateralFilterButton.setText(_translate("MainWindow", "2. Bilateral Filter"))
         self.medianFilterButton.setText(_translate("MainWindow", "3. Median Filter"))
-
-        self.pushButton_9.setText(_translate("MainWindow", "1. Load Image File"))
-        self.pushButton_10.setText(_translate("MainWindow", "2. Color Separation"))
-        self.pushButton_11.setText(_translate("MainWindow", "PushButton"))
-        self.pushButton_12.setText(_translate("MainWindow", "PushButton"))
+        self.verboseButton.setText(_translate("MainWindow", "verbose: " + str(self.verbose)))
+        self.gaussianBlurEdgeButton.setText(_translate("MainWindow", "1. Self Defined Gaussian Blur"))
+        self.pushButton_10.setText(_translate("MainWindow", "2. Sobel X"))
+        self.pushButton_11.setText(_translate("MainWindow", "3. Sobel Y"))
+        self.pushButton_12.setText(_translate("MainWindow", "4. Magnitude"))
 
 
 if __name__ == "__main__":
