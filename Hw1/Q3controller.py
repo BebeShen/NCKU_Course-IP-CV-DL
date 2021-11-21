@@ -117,13 +117,15 @@ def SobelXButtonClicked(verbose):
     kernel = gaussianKernel(3, sigma=math.sqrt(3), verbose=verbose)
     blurImage = convolution(img, kernel, average=True, verbose=verbose)
     # Sobel X filter
-    sobel_x = np.array([[-1.0, 0.0, 1.0],[-2.0, 0.0, 2.0],[-1.0, 0.0, 1.0]], np.float32)
+    sobel_x = np.array([[-1, 0, 1],[-2, 0, 2],[-1, 0, 1]])
     [rows, cols] = np.shape(blurImage)
     sobelImage = np.zeros(shape=(rows, cols))
 
     for i in range(rows-2):
         for j in range(cols-2):
             gx = abs(np.sum(np.multiply(sobel_x, blurImage[i:i+3, j:j+3])))
+            if gx > 255:
+                gx = 255
             sobelImage[i+1, j+1] = gx
     print(sobelImage)
     # cv2.imshow("Sobel X", sobelImage)
@@ -146,8 +148,10 @@ def SobelYButtonClicked(verbose):
 
     for i in range(rows-2):
         for j in range(cols-2):
-            gy = np.sum(np.multiply(sobel_y, blurImage[i:i+3, j:j+3]))
-            sobelImage[i+1, j+1] = np.sqrt(gy**2 + gy**2)
+            gy = abs(np.sum(np.multiply(sobel_y, blurImage[i:i+3, j:j+3])))
+            if gy > 255:
+                gy = 255
+            sobelImage[i+1, j+1] = gy
 
     plt.imshow(sobelImage, cmap='gray')
     plt.title("Sobel Y Image")
@@ -169,9 +173,11 @@ def MagnitudeButtonClicked(verbose):
 
     for i in range(rows-2):
         for j in range(cols-2):
-            gx = np.sum(np.multiply(sobel_x, blurImage[i:i+3, j:j+3]))
-            gy = np.sum(np.multiply(sobel_y, blurImage[i:i+3, j:j+3]))
-            sobelImage[i+1, j+1] = np.sqrt(gx**2 + gy**2)
+            gx = abs(np.sum(np.multiply(sobel_x, blurImage[i:i+3, j:j+3])))
+            gy = abs(np.sum(np.multiply(sobel_y, blurImage[i:i+3, j:j+3])))
+            value = np.sqrt(gx**2 + gy**2)
+            if value > 255: value = 255
+            sobelImage[i+1, j+1] = value
 
     plt.imshow(sobelImage, cmap='gray')
     plt.title("Sobel Y Image")
