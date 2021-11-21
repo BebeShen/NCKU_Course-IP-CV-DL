@@ -96,17 +96,20 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.addWidget(self.gaussianBlurEdgeButton)
         self.gaussianBlurEdgeButton.clicked.connect(lambda:gaussianBlurEdgeButtonClicked(self.verbose))
         # 3-2 Sobel X
-        self.pushButton_10 = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
-        self.pushButton_10.setObjectName("pushButton_10")
-        self.verticalLayout_3.addWidget(self.pushButton_10)
+        self.SobelXButton = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
+        self.SobelXButton.setObjectName("SobelXButton")
+        self.verticalLayout_3.addWidget(self.SobelXButton)
+        self.SobelXButton.clicked.connect(lambda:SobelXButtonClicked(self.verbose))
         # 3-3 Sobel Y
-        self.pushButton_11 = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
-        self.pushButton_11.setObjectName("pushButton_11")
-        self.verticalLayout_3.addWidget(self.pushButton_11)
-        # 3-4 Magnitude
-        self.pushButton_12 = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
-        self.pushButton_12.setObjectName("pushButton_12")
-        self.verticalLayout_3.addWidget(self.pushButton_12)
+        self.SobelYButton = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
+        self.SobelYButton.setObjectName("SobelYButton")
+        self.verticalLayout_3.addWidget(self.SobelYButton)
+        self.SobelYButton.clicked.connect(lambda:SobelYButtonClicked(self.verbose))
+        # 3-4 Magnitude 
+        self.MagnitudeButton = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
+        self.MagnitudeButton.setObjectName("MagnitudeButton")
+        self.verticalLayout_3.addWidget(self.MagnitudeButton)
+        self.MagnitudeButton.clicked.connect(lambda:MagnitudeButtonClicked(self.verbose))
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -128,9 +131,9 @@ class Ui_MainWindow(object):
         self.medianFilterButton.setText(_translate("MainWindow", "3. Median Filter"))
         self.verboseButton.setText(_translate("MainWindow", "verbose: " + str(self.verbose)))
         self.gaussianBlurEdgeButton.setText(_translate("MainWindow", "1. Self Defined Gaussian Blur"))
-        self.pushButton_10.setText(_translate("MainWindow", "2. Sobel X"))
-        self.pushButton_11.setText(_translate("MainWindow", "3. Sobel Y"))
-        self.pushButton_12.setText(_translate("MainWindow", "4. Magnitude"))
+        self.SobelXButton.setText(_translate("MainWindow", "2. Sobel X"))
+        self.SobelYButton.setText(_translate("MainWindow", "3. Sobel Y"))
+        self.MagnitudeButton.setText(_translate("MainWindow", "4. Magnitude"))
 
 
 if __name__ == "__main__":

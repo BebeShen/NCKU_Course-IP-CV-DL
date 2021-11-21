@@ -16,7 +16,7 @@ def convolution(image, kernel, average=False, verbose=False):
     
     Args:
         image (image)   :
-        kernel (int)    : 
+        kernel (int)    : Filter
         average (int)   : The average argument will be used only for smoothing filter
     '''
     if len(image.shape) == 3:
@@ -110,19 +110,69 @@ def gaussianBlurEdgeButtonClicked(verbose):
     
 
 # 3-2 Sobel X
-def bilateralFilterButtonClicked():
-    print("bilateralFilterButtonClicked")
-    src = cv2.imread('.\Dataset_OpenCvDl_Hw1\Q3_Image\House.jpg')
-    dst = cv2.bilateralFilter(src, 9, 90, 90)
-    cv2.imshow("Bilateral filter", np.hstack((src, dst)))
+def SobelXButtonClicked(verbose):
+    print("SobelXButtonClicked")
+    img = cv2.imread('.\Dataset_OpenCvDl_Hw1\Q3_Image\House.jpg')
+    # Noise Reduction by applying Gaussian Blur
+    kernel = gaussianKernel(3, sigma=math.sqrt(3), verbose=verbose)
+    blurImage = convolution(img, kernel, average=True, verbose=verbose)
+    # Sobel X filter
+    sobel_x = np.array([[-1.0, 0.0, 1.0],[-2.0, 0.0, 2.0],[-1.0, 0.0, 1.0]], np.float32)
+    [rows, cols] = np.shape(blurImage)
+    sobelImage = np.zeros(shape=(rows, cols))
+
+    for i in range(rows-2):
+        for j in range(cols-2):
+            gx = abs(np.sum(np.multiply(sobel_x, blurImage[i:i+3, j:j+3])))
+            sobelImage[i+1, j+1] = gx
+    print(sobelImage)
+    # cv2.imshow("Sobel X", sobelImage)
+    plt.imshow(sobelImage, cmap='gray')
+    plt.title("Sobel X Image")
+    plt.show()
+    
 
 # 3-3 Sobel Y
-def medianFilterButtonClicked():
-    print("medianFilterButtonClicked")
-    src = cv2.imread('.\Dataset_OpenCvDl_Hw1\Q3_Image\House.jpg')
-    dst1 = cv2.medianBlur(src, 3)
-    dst2 = cv2.medianBlur(src, 5)
-    cv2.imshow("3*3 Median filter", dst1)
-    cv2.imshow("5*5 Median filter", dst2)
+def SobelYButtonClicked(verbose):
+    print("SobelYButtonClicked")
+    img = cv2.imread('.\Dataset_OpenCvDl_Hw1\Q3_Image\House.jpg')
+    # Noise Reduction by applying Gaussian Blur
+    kernel = gaussianKernel(3, sigma=math.sqrt(3), verbose=verbose)
+    blurImage = convolution(img, kernel, average=True, verbose=verbose)
+    # Sobel Y filter
+    sobel_y = np.array([[1.0, 2.0, 1.0],[0.0, 0.0, 0.0],[-1.0, -2.0, -1.0]], np.float32)
+    [rows, cols] = np.shape(blurImage)
+    sobelImage = np.zeros(shape=(rows, cols))
+
+    for i in range(rows-2):
+        for j in range(cols-2):
+            gy = np.sum(np.multiply(sobel_y, blurImage[i:i+3, j:j+3]))
+            sobelImage[i+1, j+1] = np.sqrt(gy**2 + gy**2)
+
+    plt.imshow(sobelImage, cmap='gray')
+    plt.title("Sobel Y Image")
+    plt.show()
 
 # 3-4 Magnitude
+def MagnitudeButtonClicked(verbose):
+    print("MagnitudeButtonClicked")
+    img = cv2.imread('.\Dataset_OpenCvDl_Hw1\Q3_Image\House.jpg')
+    # Noise Reduction by applying Gaussian Blur
+    kernel = gaussianKernel(3, sigma=math.sqrt(3), verbose=verbose)
+    blurImage = convolution(img, kernel, average=True, verbose=verbose)
+    # Sobel X filter
+    sobel_x = np.array([[-1.0, 0.0, 1.0],[-2.0, 0.0, 2.0],[-1.0, 0.0, 1.0]], np.float32)
+    # Sobel Y filter
+    sobel_y = np.array([[1.0, 2.0, 1.0],[0.0, 0.0, 0.0],[-1.0, -2.0, -1.0]], np.float32)
+    [rows, cols] = np.shape(blurImage)
+    sobelImage = np.zeros(shape=(rows, cols))
+
+    for i in range(rows-2):
+        for j in range(cols-2):
+            gx = np.sum(np.multiply(sobel_x, blurImage[i:i+3, j:j+3]))
+            gy = np.sum(np.multiply(sobel_y, blurImage[i:i+3, j:j+3]))
+            sobelImage[i+1, j+1] = np.sqrt(gx**2 + gy**2)
+
+    plt.imshow(sobelImage, cmap='gray')
+    plt.title("Sobel Y Image")
+    plt.show()
